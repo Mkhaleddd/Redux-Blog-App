@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base:"/Redux-Blog-App",
+  base:"/redux-blog-app/",
   plugins: [react()],
 })
