@@ -36,7 +36,7 @@ body::-webkit-scrollbar {
 .skip-nav-link{
   position: absolute;
   left: 3rem;
-  transform: translateY(-400%);
+  transform: translateY(-700%);
   border-radius: 10px;
   background: #e44eef;
   color: #f6fefd;
