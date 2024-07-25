@@ -18,10 +18,10 @@ if (STATUS==="loading") return(<ColorRing
   />)
 
   return (
-        <div className='container'>
+        <section className='container' aria-labelledby='post-list'>
               <Posts  />
         
-       </div>
+       </section>
   )
 }
 

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import PostList from './assets/features/post/PostList'
-import PostForm from './assets/features/post/PostForm'
+import AddPost from './assets/features/post/AddPost'
 import './App.css'
 import {
   createBrowserRouter,
@@ -25,16 +25,17 @@ store.dispatch(fetchURL())
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route element={<Layout />}>
+    
+    <Route  path="/" element={<Layout />} >
       <Route
-        path="/"
+        path='Redux-Blog-App'
         element={<PostList />}
         errorElement={<Error />}
       />
-      <Route path='/post' >
-        <Route  index   element={<PostForm />}/>
+      <Route path='post' >
+        <Route  index   element={<AddPost />} errorElement={<Error />}/>
        <Route  path=':id' element={<SinglePost />}  errorElement={<Error />}/>
-       <Route  path=':id/edit' element={<EditPost />}/>
+       <Route  path=':id/edit' element={<EditPost />} errorElement={<Error />}/>
       </Route>
       <Route path="*" element={<NotFound />} />
     </Route>

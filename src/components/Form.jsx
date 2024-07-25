@@ -1,11 +1,14 @@
-import {useState} from 'react'
-import {postAdded,AddNewPost} from "./postSlice"
-import { users } from '../users/userSlice';
+import {useState} from 'react';
+import {AddNewPost,UpdatePost,DeletePost} from "../assets/features/post/postSlice";
+import { users } from '../assets/features/users/userSlice';
 import { useDispatch,useSelector } from 'react-redux';
-import { useNavigate } from 'react-router';
+import { useNavigate,useParams } from 'react-router';
+import { MdDeleteOutline } from "react-icons/md";
 
 
-const PostForm = () => {
+const Form = ({text,btnText,edit}) => {
+
+const {id} = useParams()
 const navigate=useNavigate()
 const dispatch=useDispatch();
 const [title,setTitle]=useState("");
@@ -19,17 +22,33 @@ const onTitleChanged=e=>setTitle(e.target.value);
 const onBodyChanged=e=>setBody(e.target.value);
 const onAuthorchanged =e=>setUserId(e.target.value)
 
+const onDelete=()=>{
+  try{
+  dispatch(DeletePost({id})).unwrap()
+  setResStatus("pending")
+  setBody("");
+  setTitle("");
+  setUserId("")
+  navigate("/Redux-Blog-App")
+  console.log("hi")
+}
+catch (err) {
+  console.error('Failed to delete the post', err)
+}
+finally{
+setResStatus("idle")
+}
 
-const onSave=()=>{
+}
+const onSumbit=()=>{
   if (honeyPot) return console.warn("bot detected")
   if(title && body &&userId&&resStatus==="idle") {
   try{
-   
     dispatch(AddNewPost({title,body,userId})).unwrap();
     setResStatus("pending")
     setBody("");
     setTitle("");
-    navigate("/")
+    navigate("/Redux-Blog-App")
     }
 
   catch (err) {
@@ -39,7 +58,24 @@ finally{
   setResStatus("idle")
 }
   }}
-
+  const onEdit=()=>{
+    if(title && body &&userId&&resStatus==="idle") {
+    try{
+      dispatch(UpdatePost({id,title,body,userId})) .unwrap();
+      setResStatus("pending")
+      setBody("");
+      setTitle("");
+      setUserId("");
+      navigate(`/post/${id}`)
+      }
+  
+    catch (err) {
+      console.error('Failed to update the post', err)
+  }
+  finally{
+    setResStatus("idle")
+  }
+    }}
 const userRendered=userArr.map(user=>(
   <option key={user.id} value={user.id}>
       {user.name}
@@ -48,8 +84,8 @@ const userRendered=userArr.map(user=>(
 
 )
   return (
-  <section aria-labelledby='title'>
-    <h2 id='title'>Add New Post</h2>
+  <section aria-labelledby='Add New Post'>
+    <h2 id='Add New Post'>{text}</h2>
     <form>
     <label htmlFor="postTitle">Title:</label>
                 <input
@@ -73,7 +109,7 @@ const userRendered=userArr.map(user=>(
                     value={body}
                     onChange={onBodyChanged}
                 />
-                <div className="hide">
+                {!edit&&<div className="hide">
                   <label htmlFor="honeypot">user will not fill this out</label>
                   <input 
                     type='text'
@@ -81,16 +117,23 @@ const userRendered=userArr.map(user=>(
                     onChange={(e)=>setHoneyPot(e.target.value)}
                     value={honeyPot}
                   />
-                </div>
-                <button 
+                </div>}
+                <button
                 type="button"
-                onClick={onSave}
+                onClick={edit?onEdit:onSumbit}
                 disabled={!(title&&body&&userId)}
-                >Save Post</button>
+                >{btnText}</button>
+                {edit&&
+                  <button
+                  className='btn-delete'
+                  onClick={onDelete }>
+                  <MdDeleteOutline />
+                  </button>
+                }
              
     </form>
   </section>
   )
 }
 
-export default PostForm
+export default Form

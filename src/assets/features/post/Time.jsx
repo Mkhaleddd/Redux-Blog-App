@@ -10,7 +10,7 @@ const timestamp=parseISO(time);
     }
   return (
     <span>
-      <i className='accent-sc'> &nbsp; {`${timeAgo} ago`}</i>
+      <i > &nbsp; {`${timeAgo} ago`}</i>
     </span>
   )
 }
