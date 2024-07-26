@@ -22,6 +22,7 @@ body::-webkit-scrollbar {
       var(--g1),var(--g1) var(--s) var(--s) #ad78f2;
     background-size: calc(2*var(--s)) calc(2*var(--s));
     animation: g15 2s infinite linear;
+    -webkit-animation:g15 2s infinite linear;
   }
   
   @keyframes g15 {
