@@ -21,8 +21,7 @@ body::-webkit-scrollbar {
     animation: g15 2s infinite linear;
     -webkit-animation:g15 2s infinite linear;
   }
-    -webkit-animation: g15 2s infinite linear;
-}
+
   
   @keyframes g15 {
     to {
