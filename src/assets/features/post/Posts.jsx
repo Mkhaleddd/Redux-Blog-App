@@ -13,7 +13,7 @@ const arr=postarr.filter(p=>p.id!=undefined||null)//remove first empty element i
 
      const PostsRendered=arr.map(post=>(
         <article key={post.id} className='post'>
-            <h3> {post.title} </h3>
+            <h2> {post.title} </h2>
             <p>{post.body}...</p> 
             <Link to={`\/post/${post.id}`} className='link'>View This Post</Link>
             <br></br>
