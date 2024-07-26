@@ -88,15 +88,17 @@ const initialState = Adapter.getInitialState({
         console.log(state.error)
     })
     .addCase(AddNewPost.fulfilled,(state,action)=>{
-
-        action.payload.date=new Date().toISOString()
+        action.payload.id=state.ids[state.ids.length-1]+1;
+        action.payload.userId=Number(action.payload.userId);
+        action.payload.date=new Date().toISOString();
         action.payload.reactions={
             thumbsUp: 0,
             wow: 0,
             heart: 0,
             rocket: 0,
             coffee: 0
-        }
+        };
+        console.log(action.payload)
        Adapter.addOne(state,action.payload)
     })
     .addCase(UpdatePost.fulfilled,(state,action)=>{

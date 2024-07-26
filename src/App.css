@@ -173,7 +173,6 @@ p{
 .menu > li {
   margin: 0 1rem;
   overflow: hidden;
-  border: 2px solid rgba( 255, 255, 255, 0);
 }
 
 .menu-button-container {
@@ -353,19 +352,23 @@ button::-moz-focus-inner{
       padding: 0.5em 0;
       width: 100%;
       color: white;
-      background-color: transparent;
+      background-color: rgba( 255, 255, 255, 0);
     }
     .menu > li:not(:last-child) {
-      border-bottom: 1px solid #444;
+      border-bottom: 1px solid rgba(0, 0, 0, 0);
     
   }
 h1{
   flex-shrink: 0;
 }
+
 .container{
     display: flex;
     flex-direction: column;
-    padding-top: 4em;
+    padding:2em 0,5em ;
+  }
+  .post{
+    padding: 0.25em;
   }
  
 .skip-nav-link,.skip-nav-link:focus{

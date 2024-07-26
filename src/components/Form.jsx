@@ -49,6 +49,7 @@ const onSumbit=()=>{
     setBody("");
     setTitle("");
     navigate("/Redux-Blog-App")
+    console.log("add")
     }
 
   catch (err) {
