@@ -19,6 +19,8 @@ body::-webkit-scrollbar {
     background:      var(--g2) calc(  var(--s)/4) calc(  var(--s)/4), var(--g2) calc(5*var(--s)/4) calc(5*var(--s)/4),      var(--g1),var(--g1) var(--s) var(--s) #ad78f2;
     background-size: calc(2*var(--s)) calc(2*var(--s));
     animation: g15 2s infinite linear;
+    -webkit-animation:g15 2s infinite linear;
+  }
     -webkit-animation: g15 2s infinite linear;
 }
   
