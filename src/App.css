@@ -199,13 +199,15 @@ p{
 
 }
 .single-post{
+  width: 70%;
+  margin: 0 auto;
   border-radius: 6px;
   padding: 2em;
   background-color: var(--green);
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
+  -webkit-border-radius:6px;
+  -moz-border-radius:6px;
+  -ms-border-radius:6px;
+  -o-border-radius:6px;
 }
 h2 + p{
   margin: 0 auto;
@@ -214,7 +216,7 @@ h2 + p{
  form{
   display: flex;
   flex-direction: column;
-
+  margin-bottom: 1em;
  }
   input,textarea,select{
   background-color: var(--text);
@@ -254,7 +256,7 @@ button::-moz-focus-inner{
   border: none;
   border-radius: 0;
   background-color: transparent;
-  color: #000000;
+  color: var(--text);
  }
   .edit{
     display: flex;
