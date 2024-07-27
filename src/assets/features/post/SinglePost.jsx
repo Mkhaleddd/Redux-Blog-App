@@ -13,7 +13,7 @@ const SinglePost = () => {
 
   return (
     <>
-<section>   
+<section className='single-post'>   
             <Link to="/Redux-Blog-App" className='link'>back to posts</Link>
             <h2>{post.title}</h2>
             <p>{post.body}</p>

@@ -9,11 +9,8 @@ export const store=configureStore({
         posts:postsReducer,
         users:userReducer
     },
-	preloadedState: loadState()
+
 })
 
 
 
-store.subscribe(
-	throttle( () => saveState(store.getState()), 1000)
-);

@@ -30,7 +30,6 @@ const onDelete=()=>{
   setTitle("");
   setUserId("")
   navigate("/Redux-Blog-App")
-  console.log("hi")
 }
 catch (err) {
   console.error('Failed to delete the post', err)
@@ -49,7 +48,6 @@ const onSumbit=()=>{
     setBody("");
     setTitle("");
     navigate("/Redux-Blog-App")
-    console.log("add")
     }
 
   catch (err) {
