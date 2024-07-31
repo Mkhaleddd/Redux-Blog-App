@@ -21,6 +21,7 @@ const [resStatus,setResStatus]=useState("idle");
 const onTitleChanged=e=>setTitle(e.target.value);
 const onBodyChanged=e=>setBody(e.target.value);
 const onAuthorchanged =e=>setUserId(e.target.value)
+const handleSpam=()=>console.warn("robot filling the form")
 
 const onDelete=()=>{
   try{
@@ -113,7 +114,7 @@ const userRendered=userArr.map(user=>(
                   <input 
                     type='text'
                     name='honeypot'
-                    onChange={(e)=>setHoneyPot(e.target.value)}
+                    onChange={handleSpam}
                     value={honeyPot}
                   />
                 </div>}
